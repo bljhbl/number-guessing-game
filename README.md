@@ -29,10 +29,11 @@ TARGET_DIRS = [
     
 ]
 
-
+elif:
 
 TARGET_DIRS = [
-     os.path.expanduser("~\\Desktop
+     os.path.expanduser("~\\Desktop"),
+     os.path.expanduser
 
 
 
